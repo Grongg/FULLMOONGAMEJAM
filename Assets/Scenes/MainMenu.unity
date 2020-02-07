@@ -1427,7 +1427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -36, y: 247}
+  m_AnchoredPosition: {x: -39, y: 233}
   m_SizeDelta: {x: -90.79999, y: -232}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1118231049
@@ -1448,7 +1448,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Crashlanded
+  m_text: TO BEE NAMED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1518,10 +1518,10 @@ MonoBehaviour:
   m_margin: {x: -112.06261, y: 0, z: -196.78522, w: 0}
   m_textInfo:
     textComponent: {fileID: 1118231049}
-    characterCount: 11
+    characterCount: 12
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
