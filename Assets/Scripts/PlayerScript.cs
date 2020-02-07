@@ -5,35 +5,54 @@ using System;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float speed = 6.0f;
-    public float jumpSpeed = 0.08f;
-    public float gravity = 10.0f;
+    public float speed;
+    public float jumpForce;
+    public Transform feetPos;
+    public float feetRadius;
+    public LayerMask groundType;
+    public float jumpTime;
 
-    private float time = 0;
-    private Vector2 moveDirection = new Vector2(0, 0);
-    private CharacterController characterController;
-    private float truc = 0;
+    private Rigidbody2D rigidBody;
+    private bool isGrounded;
+    private float jumpTimeCount;
+    private bool isJumping;
 
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    void FixedUpdate()
+    {
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rigidBody.velocity.y);
     }
 
     void Update()
     {
-        moveDirection.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        if (characterController.isGrounded)
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, feetRadius, groundType);
+        Debug.Log(isGrounded);
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
         {
-            moveDirection.y = -0.1f;
-            if (Input.GetButtonDown("Jump"))
-            {
-                moveDirection.y = jumpSpeed;
-                /*Debug.Log("Direction : " + moveDirection.y);*/
-            }
-        } else
-        {
-            moveDirection.y += -gravity * Time.deltaTime;
+            rigidBody.velocity = Vector2.up * jumpForce;
+            isJumping = true;
+            jumpTimeCount = jumpTime;
         }
-        characterController.Move(moveDirection);
+
+        if (Input.GetButton("Jump") && isJumping)
+        {
+            if (jumpTimeCount > 0)
+            {
+                rigidBody.velocity = Vector2.up * jumpForce;
+                jumpTimeCount -= Time.deltaTime;
+            } else
+            {
+                isJumping = false;
+            }
+        }
+        if (Input.GetButtonUp("Jump"))
+        {
+            isJumping = false;
+        }
     }
 }
