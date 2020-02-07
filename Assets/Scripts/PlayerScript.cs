@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     private float time = 0;
     private Vector2 moveDirection = new Vector2(0, 0);
     private CharacterController characterController;
-    private bool grouded = false;
+    private float truc = 0;
 
     void Start()
     {
@@ -24,22 +24,16 @@ public class PlayerScript : MonoBehaviour
         moveDirection.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         if (characterController.isGrounded)
         {
-            moveDirection.y = 0;
-            if (!grouded)
-            {
-                Debug.Log("Time : " + time);
-                grouded = true;
-            }
+            moveDirection.y = -0.1f;
             if (Input.GetButtonDown("Jump"))
             {
-                time = 0;
                 moveDirection.y = jumpSpeed;
-                grouded = false;
-                Debug.Log("Direction : " + moveDirection.y);
+                /*Debug.Log("Direction : " + moveDirection.y);*/
             }
+        } else
+        {
+            moveDirection.y += -gravity * Time.deltaTime;
         }
-        time += Time.deltaTime;
-        moveDirection.y += -gravity * Time.deltaTime;
         characterController.Move(moveDirection);
     }
 }
