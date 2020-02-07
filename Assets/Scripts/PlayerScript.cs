@@ -19,15 +19,13 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        moveDirection.x = Input.GetAxis("Horizontal") * Time.deltaTime;
+        moveDirection.x = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         moveDirection.y += -gravity * Time.deltaTime;
         if (characterController.isGrounded)
         {
             Debug.Log(characterController.isGrounded);
             if (Input.GetButtonDown("Jump"))
-            {
                 moveDirection.y = jumpSpeed;
-            }
         }
         characterController.Move(moveDirection);
     }
