@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     private bool isGrounded;
     private float jumpTimeCount;
     private bool isJumping;
+    private bool isFloatingUp;
 
     void Start()
     {
@@ -24,9 +25,19 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rigidBody.velocity.y);
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rigidBody.velocity.y); // Cancel master69
     }
-
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "RepulsorUp")
+            rigidBody.velocity = Vector2.up * 30;
+        if (other.tag == "RepulsorDown")
+            rigidBody.velocity = Vector2.down * 30;
+        if (other.tag == "RepulsorLeft")
+            rigidBody.velocity = new Vector2(1f * 30, rigidBody.velocity.y); // Cancelled by the new vector2 in FixedUpdate() for idk wad reason
+        if (other.tag == "RepulsorRight")
+            rigidBody.velocity = new Vector2(1f * 30, rigidBody.velocity.y); // Cancelled by the new vector2 in FixedUpdate() for idk wad reason
+    }
     void Update()
     {
         Jump();
@@ -57,6 +68,5 @@ public class PlayerScript : MonoBehaviour
             rigidBody.velocity = Vector2.up * jumpForce;
             jumpTimeCount -= Time.deltaTime;
         }
-
     }
 }
