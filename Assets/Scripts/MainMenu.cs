@@ -17,5 +17,4 @@ public class MainMenu : MonoBehaviour
         Debug.Log("QUIT"); // log "Quit" to see that it's work in the unity creator
         Application.Quit(); // quit the game
     }
-
 }

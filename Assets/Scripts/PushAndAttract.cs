@@ -17,7 +17,7 @@ public class PushAndAttract : MonoBehaviour
     {
         distanceX = (int)transform.position.x - (int)player.transform.position.x;
         distanceY = (int)transform.position.y - (int)player.transform.position.y;
-        Debug.Log(transform.position.y.ToString() + " - " + player.transform.position.y.ToString() + " = " + distanceY.ToString());
+        /*Debug.Log(transform.position.y.ToString() + " - " + player.transform.position.y.ToString() + " = " + distanceY.ToString());*/
 
         if (distanceX <= 10 && distanceX >= 3)
         {
