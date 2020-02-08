@@ -45,7 +45,6 @@ public class PlayerScript : MonoBehaviour
         if (yVelocity < -limitSpeed)
             yVelocity = -limitSpeed;
         rigidBody.velocity = new Vector2(xVelocity, yVelocity); // Cancel master69
-        Debug.Log(yVelocity);
     }
     void OnTriggerStay2D(Collider2D other)
     {
