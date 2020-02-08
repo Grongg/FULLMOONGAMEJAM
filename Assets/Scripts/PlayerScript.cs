@@ -12,11 +12,16 @@ public class PlayerScript : MonoBehaviour
     public LayerMask groundType;
     public float jumpTime;
     public bool doublejump;
+    public float rayonUpDownForce;
+
     private Rigidbody2D rigidBody;
     private bool isGrounded;
     private float jumpTimeCount;
     private bool isJumping;
     private bool isFloatingUp;
+    private float inputAxis;
+    private float isPushedSideWay = 0f;
+    private float isPushedUpDown = 0f;
 
     void Start()
     {
@@ -25,21 +30,43 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rigidBody.velocity.y); // Cancel master69
+        inputAxis = Input.GetAxis("Horizontal");
+        rigidBody.velocity = new Vector2(inputAxis * speed + isPushedSideWay, rigidBody.velocity.y + isPushedUpDown); // Cancel master69
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "RepulsorUp")
+        /*if (other.tag == "RepulsorUp")
             rigidBody.velocity = Vector2.up * 30;
         if (other.tag == "RepulsorDown")
-            rigidBody.velocity = Vector2.down * 30;
+            rigidBody.velocity = Vector2.down * 30;*/
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("enter");
         if (other.tag == "RepulsorLeft")
-            rigidBody.velocity = new Vector2(1f * 30, rigidBody.velocity.y); // Cancelled by the new vector2 in FixedUpdate() for idk wad reason
+            isPushedSideWay -= 30f;
         if (other.tag == "RepulsorRight")
-            rigidBody.velocity = new Vector2(1f * 30, rigidBody.velocity.y); // Cancelled by the new vector2 in FixedUpdate() for idk wad reason
+            isPushedSideWay += 30f;
+        if (other.tag == "RepulsorUp")
+            isPushedUpDown += rayonUpDownForce;
+        if (other.tag == "RepulsorDown")
+            isPushedUpDown -= rayonUpDownForce;
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Debug.Log("leave");
+        if (other.tag == "RepulsorLeft")
+            isPushedSideWay += 30f;
+        if (other.tag == "RepulsorRight")
+            isPushedSideWay -= 30f;
+        if (other.tag == "RepulsorUp")
+            isPushedUpDown -= rayonUpDownForce;
+        if (other.tag == "RepulsorDown")
+            isPushedUpDown += rayonUpDownForce;
     }
     void Update()
     {
+        FaceForward();
         Jump();
     }
     private void Jump()
@@ -67,6 +94,16 @@ public class PlayerScript : MonoBehaviour
         {
             rigidBody.velocity = Vector2.up * jumpForce;
             jumpTimeCount -= Time.deltaTime;
+        }
+    }
+    private void FaceForward()
+    {
+        if (inputAxis < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        } else if (inputAxis > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 }
