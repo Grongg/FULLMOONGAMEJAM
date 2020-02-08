@@ -2121,6 +2121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 1463018893}
+  boundaryUp: 20
+  boundaryDown: -20
+  boundaryLeft: -30
+  boundaryRight: 30
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
