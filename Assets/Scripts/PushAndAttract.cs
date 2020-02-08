@@ -9,69 +9,66 @@ public class PushAndAttract : MonoBehaviour
     public bool pull = false;
     
     [SerializeField]
-    private Transform checkpoint;
-    
-    [SerializeField]
-    private TextMeshProUGUI distanceText;
+    private Transform player;
 
     private int distanceX, distanceY;
 
     private void Update()
     {
-        distanceX = (int)checkpoint.transform.position.x - (int)transform.position.x;
-        distanceY = (int)checkpoint.transform.position.y - (int)transform.position.y;
-        Debug.Log(checkpoint.transform.position.y.ToString() + " - " + transform.position.y.ToString() + " = " + distanceY.ToString());
+        distanceX = (int)transform.position.x - (int)player.transform.position.x;
+        distanceY = (int)transform.position.y - (int)player.transform.position.y;
+        Debug.Log(transform.position.y.ToString() + " - " + player.transform.position.y.ToString() + " = " + distanceY.ToString());
 
         if (distanceX <= 10 && distanceX >= 3)
         {
             if (push)
             {
-            distanceText.text = "Push";
-            checkpoint.transform.position = new Vector2(checkpoint.transform.position.x + 0.3f, checkpoint.transform.position.y);
+            //distanceText.text = "Push";
+                transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y);
             }
             else if (pull)
             {
-            distanceText.text = "Pull";
-            checkpoint.transform.position = new Vector2(checkpoint.transform.position.x - 0.3f, checkpoint.transform.position.y);
+            //distanceText.text = "Pull";
+                transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y);
             }
         }
         if (distanceX >= -10 && distanceX <= -3)
         {
             if (push)
             {
-                distanceText.text = "Push";
-                checkpoint.transform.position = new Vector2(checkpoint.transform.position.x - 0.3f, checkpoint.transform.position.y);
+              //  distanceText.text = "Push";
+                transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y);
             }
             else if (pull)
             {
-                distanceText.text = "Push";
-                checkpoint.transform.position = new Vector2(checkpoint.transform.position.x + 0.3f, checkpoint.transform.position.y);
+                //distanceText.text = "Push";
+                transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y);
             }
         }
         if (distanceY <= 10 && distanceY >= 3)
         {
             if (push)
             {
-                distanceText.text = "Push";
-                checkpoint.transform.position = new Vector2(checkpoint.transform.position.x, checkpoint.transform.position.y + 0.3f);
+            //    distanceText.text = "Push";
+                transform.position = new Vector2(transform.position.x, transform.position.y + 0.3f);
             }
             else if (pull)
             {
-                distanceText.text = "Pull";
-                checkpoint.transform.position = new Vector2(checkpoint.transform.position.x, checkpoint.transform.position.y - 0.3f);
+             //   distanceText.text = "Pull";
+                transform.position = new Vector2(transform.position.x, transform.position.y - 0.3f);
             }
         }
         if (distanceY >= -10 && distanceY <= -3)
         {
             if (push)
             {
-                distanceText.text = "Push";
-                checkpoint.transform.position = new Vector2(checkpoint.transform.position.x , checkpoint.transform.position.y - 0.3f);
+               // distanceText.text = "Push";
+                transform.position = new Vector2(transform.position.x , transform.position.y - 0.3f);
             }
             else if (pull)
             {
-                distanceText.text = "Pull";
-                checkpoint.transform.position = new Vector2(checkpoint.transform.position.x, checkpoint.transform.position.y + 0.3f);
+                //distanceText.text = "Pull";
+                transform.position = new Vector2(transform.position.x, transform.position.y + 0.3f);
             }
         }
     }
