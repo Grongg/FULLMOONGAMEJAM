@@ -42,7 +42,6 @@ public class PlayerScript : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("enter");
         if (other.tag == "RepulsorLeft")
             isPushedSideWay -= 30f;
         if (other.tag == "RepulsorRight")
@@ -54,7 +53,6 @@ public class PlayerScript : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("leave");
         if (other.tag == "RepulsorLeft")
             isPushedSideWay += 30f;
         if (other.tag == "RepulsorRight")
