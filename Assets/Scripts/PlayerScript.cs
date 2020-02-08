@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        DataCollector.State = true;
     }
 
     void FixedUpdate()
@@ -79,6 +80,19 @@ public class PlayerScript : MonoBehaviour
     {
         FaceForward();
         Jump();
+        changeWorlds();
+    }
+
+    private void changeWorlds()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Key Pressed");
+            if (DataCollector.State)
+                DataCollector.State = false;
+            else
+                DataCollector.State = true;
+        }
     }
     private void Jump()
     {
