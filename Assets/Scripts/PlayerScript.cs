@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public float feetRadius;
     public LayerMask groundType;
     public float jumpTime;
-
+    public bool doublejump;
     private Rigidbody2D rigidBody;
     private bool isGrounded;
     private float jumpTimeCount;
@@ -29,30 +29,34 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        Jump();
+    }
+    private void Jump()
+    {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, feetRadius, groundType);
-        Debug.Log(isGrounded);
-
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (isGrounded && !Input.GetButton("Jump"))
+        {
+            isJumping = false;
+            doublejump = true;
+        }
+        if (!isGrounded && doublejump && Input.GetButtonDown("Jump"))
         {
             rigidBody.velocity = Vector2.up * jumpForce;
             isJumping = true;
+            doublejump = false;
             jumpTimeCount = jumpTime;
         }
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            rigidBody.velocity = Vector2.up * jumpForce; 
+            isJumping = true;
+            jumpTimeCount = jumpTime;
+        }
+        if (Input.GetButton("Jump") && isJumping && jumpTimeCount > 0)
+        {
+            rigidBody.velocity = Vector2.up * jumpForce;
+            jumpTimeCount -= Time.deltaTime;
+        }
 
-        if (Input.GetButton("Jump") && isJumping)
-        {
-            if (jumpTimeCount > 0)
-            {
-                rigidBody.velocity = Vector2.up * jumpForce;
-                jumpTimeCount -= Time.deltaTime;
-            } else
-            {
-                isJumping = false;
-            }
-        }
-        if (Input.GetButtonUp("Jump"))
-        {
-            isJumping = false;
-        }
     }
 }
