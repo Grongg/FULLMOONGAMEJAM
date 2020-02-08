@@ -2121,7 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 1463018893}
-  boundaryUp: 20
+  boundaryUp: 10
   boundaryDown: -20
   boundaryLeft: -30
   boundaryRight: 30
@@ -3841,6 +3841,7 @@ MonoBehaviour:
   jumpTime: 0.1
   doublejump: 1
   rayonUpDownForce: 10
+  limitSpeed: 100
 --- !u!95 &1463018890
 Animator:
   serializedVersion: 3

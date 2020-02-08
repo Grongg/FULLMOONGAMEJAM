@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public float jumpTime;
     public bool doublejump;
     public float rayonUpDownForce;
+    public float limitSpeed;
 
     private Rigidbody2D rigidBody;
     private bool isGrounded;
@@ -30,8 +31,21 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        float xVelocity = isPushedSideWay;
+        float yVelocity = rigidBody.velocity.y + isPushedUpDown;
+
         inputAxis = Input.GetAxis("Horizontal");
-        rigidBody.velocity = new Vector2(inputAxis * speed + isPushedSideWay, rigidBody.velocity.y + isPushedUpDown); // Cancel master69
+        xVelocity += inputAxis * speed;
+        if (xVelocity > limitSpeed)
+            xVelocity = limitSpeed;
+        if (xVelocity < -limitSpeed)
+            xVelocity = -limitSpeed;
+        if (yVelocity > limitSpeed)
+            yVelocity = limitSpeed;
+        if (yVelocity < -limitSpeed)
+            yVelocity = -limitSpeed;
+        rigidBody.velocity = new Vector2(xVelocity, yVelocity); // Cancel master69
+        Debug.Log(yVelocity);
     }
     void OnTriggerStay2D(Collider2D other)
     {
