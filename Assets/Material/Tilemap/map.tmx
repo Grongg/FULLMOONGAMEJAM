@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="left-up" compressionlevel="-1" width="7" height="9" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.2" tiledversion="1.3.2" orientation="orthogonal" renderorder="left-up" compressionlevel="-1" width="7" height="10" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
  <tileset firstgid="1" source="AllTiles.tsx"/>
- <layer id="1" name="Calque 1" width="7" height="9">
+ <layer id="1" name="Calque 1" width="7" height="10">
   <data encoding="base64" compression="zlib">
-   eJxFw0VuAkAAAMDFobgV1xZa3OGE/f9TTMKBSSYSQogaM27CpCnTZvwya868BYuWLFuxas263zZs2rJtx649+w4cOnLsj79OnPrnvzPnLly6cu3GrTv3Hjx68uwlvF29effhM3y8AKM+B0A=
+   eJwlw+lSgQEAAMDPUUlK7jP3HYrQH+Qo8f4vZGfszIaCIAgbMeqd9z4Y89G4TyZ89sWkr6ZMmzFrzrwFi5YsW7HqmzXrNmzasm3Hrj37Dhw68t2xE6d++OnMuV8uXLry27Ubt/64c+/Bo7/+efLfs5fg5gqrfQmo
   </data>
  </layer>
 </map>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.3.2" name="AllTiles" tilewidth="32" tileheight="32" tilecount="61" columns="0">
+<tileset version="1.2" tiledversion="1.3.2" name="AllTiles" tilewidth="32" tileheight="32" tilecount="69" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0">
   <image width="32" height="32" source="TilemapSources/Barriere.png"/>
@@ -183,5 +183,29 @@
  </tile>
  <tile id="64">
   <image width="32" height="32" source="TilemapSources/sol_terre4.png"/>
+ </tile>
+ <tile id="65">
+  <image width="32" height="32" source="TilemapSources/ground_negative.png"/>
+ </tile>
+ <tile id="66">
+  <image width="32" height="32" source="TilemapSources/ground_negative_bas.png"/>
+ </tile>
+ <tile id="67">
+  <image width="32" height="32" source="TilemapSources/ground_negative_droite.png"/>
+ </tile>
+ <tile id="68">
+  <image width="32" height="32" source="TilemapSources/ground_negative_gauche.png"/>
+ </tile>
+ <tile id="69">
+  <image width="32" height="32" source="TilemapSources/sol__changement_de_temps.png"/>
+ </tile>
+ <tile id="70">
+  <image width="32" height="32" source="TilemapSources/sol__changement_de_temps_bas.png"/>
+ </tile>
+ <tile id="71">
+  <image width="32" height="32" source="TilemapSources/sol__changement_de_temps_droite.png"/>
+ </tile>
+ <tile id="72">
+  <image width="32" height="32" source="TilemapSources/sol__changement_de_temps_gauche.png"/>
  </tile>
 </tileset>
