@@ -166,22 +166,22 @@
  <tile id="54">
   <image width="32" height="32" source="TilemapSources/sol_temps_normal_trois_cotes_gauche.png"/>
  </tile>
- <tile id="55">
-  <image width="32" height="32" source="TilemapSources/sol_terre.png"/>
- </tile>
- <tile id="56">
-  <image width="32" height="32" source="TilemapSources/sol_terre2.png"/>
- </tile>
- <tile id="57">
-  <image width="32" height="32" source="TilemapSources/sol_terre3.png"/>
- </tile>
- <tile id="58">
-  <image width="32" height="32" source="TilemapSources/sol_terre4.png"/>
- </tile>
  <tile id="59">
   <image width="32" height="32" source="TilemapSources/un_arbre_random.png"/>
  </tile>
  <tile id="60">
   <image width="32" height="32" source="TilemapSources/vitre.png"/>
+ </tile>
+ <tile id="61">
+  <image width="32" height="32" source="TilemapSources/sol_terre.png"/>
+ </tile>
+ <tile id="62">
+  <image width="32" height="32" source="TilemapSources/sol_terre2.png"/>
+ </tile>
+ <tile id="63">
+  <image width="32" height="32" source="TilemapSources/sol_terre3.png"/>
+ </tile>
+ <tile id="64">
+  <image width="32" height="32" source="TilemapSources/sol_terre4.png"/>
  </tile>
 </tileset>
