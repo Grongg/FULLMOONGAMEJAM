@@ -20,7 +20,7 @@ public class DeathFieldScript : MonoBehaviour
         if (other.tag == "Player")
         {
             Debug.Log("Dead !!");
-            SceneManager.LoadScene("EndGame", LoadSceneMode.Single);
+            SceneManager.LoadScene("DieScreen", LoadSceneMode.Single);
         }
     }
 }
