@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     
     public void PlayGame() // Fonction that is attached to the PlayButton to load the game scene
     {
-        SceneManager.LoadScene("MainGame", LoadSceneMode.Single);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
 
     public void QuitGame() // Fonction that is attached to QuitButton to quit game
