@@ -4,8 +4,13 @@ using UnityEngine;
 
 public static class DataCollector
 {
-    private static bool state;
+    private static bool state, ISPressed;
     public static bool State
+    {
+        get;
+        set;
+    }
+    public static bool iSPressed
     {
         get;
         set;

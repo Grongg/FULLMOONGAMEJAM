@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PressurePlateScript : MonoBehaviour
 {
-    private bool isPressed = false;
-
     void Start()
     {
-        
+        DataCollector.iSPressed = false;
     }
 
     void Update()
@@ -19,14 +17,7 @@ public class PressurePlateScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            isPressed = true;
-        }
-    }
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Player")
-        {
-            isPressed = false;
+            DataCollector.iSPressed = true;
         }
     }
 }

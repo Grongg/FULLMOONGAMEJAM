@@ -12,12 +12,11 @@ public class ExitDoor : MonoBehaviour
 
     void Update()
     {
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && DataCollector.iSPressed == true)
         {
             SceneManager.LoadScene("WinScreen", LoadSceneMode.Single);
         }
